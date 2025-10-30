@@ -12,7 +12,7 @@ class IntraSensorDataset(Dataset):
         
         live_dir = os.path.join(data_dir, 'Live')
         for filename in os.listdir(live_dir):
-            if filename.lower().endswith('.png'):
+            if filename.lower().endswith(('.png', '.bmp')):
                 self.samples.append((os.path.join(live_dir, filename), 1))
         
         spoof_dir = os.path.join(data_dir, 'Spoof')
@@ -20,7 +20,7 @@ class IntraSensorDataset(Dataset):
             spoof_subdir_path = os.path.join(spoof_dir, spoof_subdir)
             if os.path.isdir(spoof_subdir_path):
                 for filename in os.listdir(spoof_subdir_path):
-                    if filename.lower().endswith('.png'):
+                    if filename.lower().endswith(('.png', '.bmp')):
                         self.samples.append((os.path.join(spoof_subdir_path, filename), 0))
     
     def __len__(self):
