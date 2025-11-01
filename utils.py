@@ -9,6 +9,7 @@ class IntraSensorBinaryDataset(Dataset):
         self.data_dir = data_dir
         self.transform = transform
         self.samples = []
+        self.num_classes = 1
         
         live_dir = os.path.join(data_dir, 'Live')
         for filename in os.listdir(live_dir):
